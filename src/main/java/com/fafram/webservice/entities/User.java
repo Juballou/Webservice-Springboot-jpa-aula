@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name= "tbuser")
+@Table(name = "tb_user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,7 +19,6 @@ public class User implements Serializable {
     private String password;
 
     public User() {
-
     }
 
     public User(Long id, String name, String email, String phone, String password) {
@@ -75,11 +74,7 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) &&
-                Objects.equals(name, user.name) &&
-                Objects.equals(email, user.email) &&
-                Objects.equals(phone, user.phone) &&
-                Objects.equals(password, user.password);
+        return id.equals(user.id);
     }
 
     @Override

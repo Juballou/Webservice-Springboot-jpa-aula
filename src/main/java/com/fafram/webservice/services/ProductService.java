@@ -3,14 +3,14 @@ package com.fafram.webservice.services;
 import com.fafram.webservice.entities.Product;
 import com.fafram.webservice.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProductService {
 
-    // injeção de dependência
     @Autowired
     private ProductRepository repository;
 

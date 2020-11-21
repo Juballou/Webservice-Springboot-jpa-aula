@@ -20,15 +20,15 @@ public class Product implements Serializable {
     private Double price;
     private String imgUrl;
 
-    // Conjunto de categorias
-    // Não aceita categorias repetidas
+    /* Conjunto de categorias
+    Não aceita categorias repetidas */
     @ManyToMany
-    @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"),
-    inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @JoinTable(name = "tb_product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Product() {
-
     }
 
     public Product(Long id, String name, String description, Double price, String imgUrl) {
@@ -88,16 +88,11 @@ public class Product implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return id.equals(product.id) &&
-                name.equals(product.name) &&
-                description.equals(product.description) &&
-                price.equals(product.price) &&
-                imgUrl.equals(product.imgUrl) &&
-                Objects.equals(categories, product.categories);
+        return id.equals(product.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price, imgUrl, categories);
+        return Objects.hash(id);
     }
 }
